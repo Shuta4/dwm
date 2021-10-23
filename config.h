@@ -76,6 +76,7 @@ static const char *dmenucmd[] = {
 	"-nf", col_norm_fg,
 	"-sb", col_sel_bg,
 	"-sf", col_sel_fg,
+	"-i",
 	NULL
 };
 static const char *termcmd[]  = { "st", NULL };
