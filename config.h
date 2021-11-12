@@ -98,6 +98,8 @@ static Key keys[] = {
 	{ KeyPress,   0, XF86XK_WLAN,                          spawn,          SHCMD("") },
 	{ KeyPress,   0, XF86XK_Tools,                         spawn,          SHCMD("") },
 	{ KeyPress,   0,                            XK_Print,  spawn,          SHCMD("flameshot gui") },
+	{ KeyPress,   MODKEY,                       XK_c,      spawn,          SHCMD("notify-send \"$(cal -m)\"") },
+	{ KeyPress,   MODKEY,                       XK_w,      spawn,          SHCMD("$BROWSER") },
 	/* windows controls */
 	{ KeyPress,   MODKEY|ControlMask,           XK_b,      togglebar,      {0} },
 	{ KeyPress,   MODKEY,                       XK_j,      focusstack,     {.i = +1 } },
