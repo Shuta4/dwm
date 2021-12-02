@@ -33,7 +33,8 @@ static const Rule rules[] = {
         { "Gimp",     NULL,       NULL,       0,            1,           -1 },
 	{ "Firefox",  NULL,       NULL,       1 << 8,       0,           -1 },
         */
-        { NULL,       NULL,       NULL,       0,            0,           -1 },
+        { "notepad",  NULL,       NULL,       0,            1,           -1 },
+        //{ NULL,       NULL,       NULL,       0,            0,           -1 },
 };
 
 /* layout(s) */
@@ -100,6 +101,8 @@ static Key keys[] = {
 	{ KeyPress,   0,                            XK_Print,  spawn,          SHCMD("flameshot gui") },
 	{ KeyPress,   MODKEY,                       XK_c,      spawn,          SHCMD("notify-send \"$(cal -m)\"") },
 	{ KeyPress,   MODKEY,                       XK_w,      spawn,          SHCMD("$BROWSER") },
+	{ KeyPress,   MODKEY,                       XK_b,      spawn,          SHCMD("$TERMINAL -c notepad -g 100x30 -e $EDITOR $VIMWIKI_NOTES_DIR/bookmarks.md") },
+	{ KeyPress,   MODKEY,                       XK_n,      spawn,          SHCMD("$TERMINAL -c notepad -g 100x30 -e $EDITOR $VIMWIKI_NOTES_DIR/index.md") },
 	/* windows controls */
 	{ KeyPress,   MODKEY|ControlMask,           XK_b,      togglebar,      {0} },
 	{ KeyPress,   MODKEY,                       XK_j,      focusstack,     {.i = +1 } },
