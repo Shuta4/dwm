@@ -28,13 +28,8 @@ static const Rule rules[] = {
 	 *	WM_CLASS(STRING) = instance, class
 	 *	WM_NAME(STRING) = title
 	 */
-	/* class      instance    title       tags mask     isfloating   monitor */
-	/* Examples:
-        { "Gimp",     NULL,       NULL,       0,            1,           -1 },
-	{ "Firefox",  NULL,       NULL,       1 << 8,       0,           -1 },
-        */
-        { "notepad",  NULL,       NULL,       0,            1,           -1 },
-        //{ NULL,       NULL,       NULL,       0,            0,           -1 },
+	/* class      instance    title       tags mask     iscentered   isfloating   monitor */
+        { "notepad",  NULL,       NULL,       0,            1,           1,           -1 },
 };
 
 /* layout(s) */
@@ -80,7 +75,7 @@ static const char *dmenucmd[] = {
 	"-i",
 	NULL
 };
-static const char *termcmd[]  = { "st", NULL };
+static const char *termcmd[]  = { "samedir", NULL };
 
 #include <X11/XF86keysym.h>
 
