@@ -99,10 +99,11 @@ static Key keys[] = {
 	{ KeyPress,   0, XF86XK_WLAN,                          spawn,          SHCMD("") },
 	{ KeyPress,   0, XF86XK_Tools,                         spawn,          SHCMD("") },
 	{ KeyPress,   0,                            XK_Print,  spawn,          SHCMD("flameshot gui") },
-	{ KeyPress,   MODKEY,                       XK_c,      spawn,          SHCMD("notify-send \"$(cal -m)\"") },
+	{ KeyPress,   MODKEY,                       XK_c,      spawn,          SHCMD("$TERMINAL -c notepad -g 100x30 -e calcurse") },
 	{ KeyPress,   MODKEY,                       XK_w,      spawn,          SHCMD("$BROWSER") },
 	{ KeyPress,   MODKEY,                       XK_b,      spawn,          SHCMD("$TERMINAL -c notepad -g 100x30 -e $EDITOR $VIMWIKI_NOTES_DIR/bookmarks.md") },
 	{ KeyPress,   MODKEY,                       XK_n,      spawn,          SHCMD("$TERMINAL -c notepad -g 100x30 -e $EDITOR $VIMWIKI_NOTES_DIR/index.md") },
+	{ KeyPress,   MODKEY,                       XK_e,      spawn,          SHCMD("$TERMINAL -c notepad -g 100x30 -e nmtui") },
 	/* windows controls */
 	{ KeyPress,   MODKEY|ControlMask,           XK_b,      togglebar,      {0} },
 	{ KeyPress,   MODKEY,                       XK_j,      focusstack,     {.i = +1 } },
