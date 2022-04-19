@@ -64,17 +64,21 @@ static const Layout layouts[] = {
 
 /* commands */
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
-static const char *dmenucmd[] = {
-	"dmenu_run",
-	"-m", dmenumon,
-	"-fn", dmenufont,
-	"-nb", col_norm_bg,
-	"-nf", col_norm_fg,
-	"-sb", col_sel_bg,
-	"-sf", col_sel_fg,
-	"-i",
-	NULL
-};
+
+#define DMENUCMD(cmd) {\
+	.v = (const char*[]){\
+		cmd,\
+		"-m", dmenumon,\
+		"-fn", dmenufont,\
+		"-nb", col_norm_bg,\
+		"-nf", col_norm_fg,\
+		"-sb", col_sel_bg,\
+		"-sf", col_sel_fg,\
+		"-i",\
+		NULL\
+	}\
+}
+
 static const char *termcmd[]  = { "samedir", NULL };
 
 #include <X11/XF86keysym.h>
@@ -82,7 +86,13 @@ static const char *termcmd[]  = { "samedir", NULL };
 static Key keys[] = {
 	/* type       modifier                      key        function        argument */
 	/* programs execution */
-	{ KeyPress,   MODKEY,                       XK_d,      spawn,          {.v = dmenucmd } },
+	{ KeyPress,   MODKEY,                       XK_d,      spawn,          DMENUCMD("dmenu_run") },
+	{ KeyPress,   MODKEY,                       XK_p,      spawn,          DMENUCMD("dmenu_pass") },
+	{ KeyPress,   MODKEY,                       XK_m,      spawn,          DMENUCMD("dmenu_mount") },
+	{ KeyPress,   MODKEY,                       XK_u,      spawn,          DMENUCMD("dmenu_unmount") },
+	{ KeyPress,   MODKEY,                       XK_s,      spawn,          DMENUCMD("dmenu_sysact") },
+	{ KeyPress,   MODKEY,                       XK_r,      spawn,          DMENUCMD("dmenu_remmina") },
+	{ KeyPress,   MODKEY|ShiftMask,             XK_d,      spawn,          DMENUCMD("dmenu_display") },
 	{ KeyPress,   MODKEY|ShiftMask,             XK_Return, spawn,          {.v = termcmd } },
 	/* Add "kill -<signal of block + 34> $(pidof dwmblocks)" to SHCMD command to update block */
 	{ KeyPress,   0, XF86XK_MonBrightnessDown,             spawn,          SHCMD("brightnessctl set 5%-") },
@@ -112,9 +122,9 @@ static Key keys[] = {
 	/* layouts switching */
 	{ KeyPress,   MODKEY,                       XK_t,      setlayout,      {.v = &layouts[0]} },
 	{ KeyPress,   MODKEY,                       XK_f,      setlayout,      {.v = &layouts[1]} },
-	{ KeyPress,   MODKEY,                       XK_m,      setlayout,      {.v = &layouts[2]} },
-	{ KeyPress,   MODKEY,                       XK_r,      setlayout,      {.v = &layouts[3]} },
-	{ KeyPress,   MODKEY|ShiftMask,             XK_r,      setlayout,      {.v = &layouts[4]} },
+	{ KeyPress,   MODKEY|ShiftMask,             XK_m,      setlayout,      {.v = &layouts[2]} },
+	{ KeyPress,   MODKEY|ShiftMask,             XK_r,      setlayout,      {.v = &layouts[3]} },
+	{ KeyPress,   MODKEY|ControlMask,           XK_r,      setlayout,      {.v = &layouts[4]} },
 	{ KeyPress,   MODKEY,                       XK_space,  setlayout,      {0} },
 	{ KeyPress,   MODKEY|ShiftMask,             XK_space,  togglefloating, {0} },
 	/* tags controls */
