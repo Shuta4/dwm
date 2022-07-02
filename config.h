@@ -92,6 +92,8 @@ static Key keys[] = {
 	{ KeyPress,   MODKEY,                       XK_u,      spawn,          DMENUCMD("dmenu_unmount") },
 	{ KeyPress,   MODKEY,                       XK_s,      spawn,          DMENUCMD("dmenu_sysact") },
 	{ KeyPress,   MODKEY,                       XK_r,      spawn,          DMENUCMD("dmenu_remmina") },
+	{ KeyPress,   MODKEY,                       XK_f,      spawn,          DMENUCMD("dmenu_flatpak") },
+	{ KeyPress,   MODKEY,                       XK_t,      spawn,          DMENUCMD("dmenu_td-toggle") },
 	{ KeyPress,   MODKEY|ShiftMask,             XK_d,      spawn,          DMENUCMD("dmenu_display") },
 	{ KeyPress,   MODKEY|ShiftMask,             XK_Return, spawn,          {.v = termcmd } },
 	/* Add "kill -<signal of block + 34> $(pidof dwmblocks)" to SHCMD command to update block */
@@ -120,8 +122,8 @@ static Key keys[] = {
 	{ KeyPress,   MODKEY,                       XK_Return, zoom,           {0} },
 	{ KeyPress,   MODKEY,                       XK_Tab,    view,           {0} },
 	/* layouts switching */
-	{ KeyPress,   MODKEY,                       XK_t,      setlayout,      {.v = &layouts[0]} },
-	{ KeyPress,   MODKEY,                       XK_f,      setlayout,      {.v = &layouts[1]} },
+	{ KeyPress,   MODKEY|ShiftMask,                       XK_t,      setlayout,      {.v = &layouts[0]} },
+	{ KeyPress,   MODKEY|ShiftMask,             XK_f,      setlayout,      {.v = &layouts[1]} },
 	{ KeyPress,   MODKEY|ShiftMask,             XK_m,      setlayout,      {.v = &layouts[2]} },
 	{ KeyPress,   MODKEY|ShiftMask,             XK_r,      setlayout,      {.v = &layouts[3]} },
 	{ KeyPress,   MODKEY|ControlMask,           XK_r,      setlayout,      {.v = &layouts[4]} },
