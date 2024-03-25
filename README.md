@@ -1,4 +1,6 @@
-# Shuta4's build of dwm - dynamic window manager
+# [Deprecated] Shuta4's build of dwm - dynamic window manager
+_This repo is archived and will not be updated because i switched to wayland/hyprland_
+
 dwm is an extremely fast, small, and dynamic window manager for X.
 
 ## Requirements
